@@ -1,0 +1,19 @@
+fabrix_search:
+  base_url: "https://your-fabrix-search-endpoint"
+  search_path: "/v1/search"
+  chunk_index: "chunks-index"
+  api_key: ""
+  timeout_sec: 30
+
+graph_rdb:
+  base_url: "https://your-opensearch-endpoint"
+  search_path: "/_search"
+  index: "graph-rdb-index"
+  api_key: ""
+  timeout_sec: 30
+
+hyperparameters:
+  topk_initial: 20
+  topc_per_document: 5
+  n_hop: 2
+  default_catalog_id: "catalog-001"
