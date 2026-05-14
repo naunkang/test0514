@@ -1,0 +1,13 @@
+opensearch:
+  hosts:
+    - host: 127.0.0.1
+      port: 9200
+  use_ssl: false
+  verify_certs: false
+  http_auth:
+    username: admin
+    password: admin
+  timeout: 30
+
+index:
+  name: sample-products
