@@ -1,13 +1,20 @@
+fabrix_cs_service:
+  base_url: "http://127.0.0.1:8080"
+  timeout: 30
+  api_key: ""
+  headers:
+    X-Client-Name: "fabrix-cs-python-sdk"
+
 opensearch:
   hosts:
-    - host: 127.0.0.1
+    - host: "127.0.0.1"
       port: 9200
   use_ssl: false
   verify_certs: false
-  http_auth:
-    username: admin
-    password: admin
   timeout: 30
+  http_auth:
+    username: "admin"
+    password: "admin"
 
 index:
-  name: sample-products
+  name: "sample-index"

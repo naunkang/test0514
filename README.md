@@ -1,15 +1,18 @@
-# OpenSearch CRUD Python 예제 (YAML 설정 + SDK)
+# Python SDK Examples (Fabrix CS Service + OpenSearch)
 
-이 예제는 `127.0.0.1` OpenSearch를 대상으로, YAML 설정 파일을 읽는 방식으로 Python SDK 클래스를 만들고 CRUD를 수행합니다.
+이 저장소는 2개의 SDK 예시를 제공합니다.
+
+- `fabrix_cs_sdk.py`: Fabrix CS Service 형태의 REST API용 SDK
+- `opensearch_sdk.py`: OpenSearch CRUD SDK
 
 ## 파일 구성
 
-- `config.yaml`: OpenSearch 접속 정보 및 인덱스명
-- `opensearch_sdk.py`: OpenSearch CRUD SDK
-- `example_crud.py`: SDK 사용 예제
+- `config.yaml`: 두 SDK의 공통 설정
+- `example_fabrix_cs.py`: Fabrix CS SDK 사용 예제
+- `example_crud.py`: OpenSearch SDK 사용 예제
 - `requirements.txt`: 의존성
 
-## 1) 설치
+## 설치
 
 ```bash
 python -m venv .venv
@@ -17,29 +20,29 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## 2) OpenSearch 실행 확인
+## Fabrix CS SDK 사용
 
-기본 설정은 아래와 같습니다.
+`config.yaml`에서 아래 항목을 환경에 맞게 바꿔주세요.
 
-- Host: `127.0.0.1`
-- Port: `9200`
-- ID/PW: `admin/admin`
+- `fabrix_cs_service.base_url`
+- `fabrix_cs_service.api_key`
 
-필요하면 `config.yaml` 값을 수정하세요.
+실행:
 
-## 3) 실행
+```bash
+python example_fabrix_cs.py
+```
+
+제공 메서드:
+
+- `health()`
+- `create_conversation(user_id, metadata=None)`
+- `get_conversation(conversation_id)`
+- `send_message(conversation_id, message, role="user")`
+- `delete_conversation(conversation_id)`
+
+## OpenSearch SDK 사용
 
 ```bash
 python example_crud.py
 ```
-
-## CRUD 메서드
-
-`OpenSearchSDK`에 아래 메서드가 구현되어 있습니다.
-
-- `create_index(mapping=None)`
-- `create_document(doc_id, document)`
-- `read_document(doc_id)`
-- `update_document(doc_id, fields)`
-- `delete_document(doc_id)`
-- `delete_index()`
