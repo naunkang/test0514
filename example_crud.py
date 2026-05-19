@@ -1,31 +1,31 @@
-from opensearch_sdk import OpenSearchSDK
+from opensearch_adk import OpenSearchCrudADK
 
 
 def main() -> None:
-    sdk = OpenSearchSDK("config.yaml")
+    adk = OpenSearchCrudADK("config.yaml")
 
     print("1) CREATE INDEX")
-    print(sdk.create_index())
+    print(adk.create_index())
 
     print("\n2) CREATE DOCUMENT")
     print(
-        sdk.create_document(
+        adk.create_document(
             doc_id="1",
             document={"name": "keyboard", "price": 79.9, "category": "electronics"},
         )
     )
 
     print("\n3) READ DOCUMENT")
-    print(sdk.read_document("1"))
+    print(adk.read_document("1"))
 
     print("\n4) UPDATE DOCUMENT")
-    print(sdk.update_document("1", {"price": 69.9}))
+    print(adk.update_document("1", {"price": 69.9}))
 
     print("\n5) DELETE DOCUMENT")
-    print(sdk.delete_document("1"))
+    print(adk.delete_document("1"))
 
     print("\n(OPTIONAL) DELETE INDEX")
-    print(sdk.delete_index())
+    print(adk.delete_index())
 
 
 if __name__ == "__main__":
